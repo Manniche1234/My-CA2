@@ -1,7 +1,9 @@
 package utils;
 
 
+import entities.Player;
 import entities.Role;
+import entities.Team;
 import entities.User;
 
 import javax.persistence.EntityManager;
@@ -19,9 +21,26 @@ public class SetupTestUsers {
     // CHANGE the three passwords below, before you uncomment and execute the code below
     // Also, either delete this file, when users are created or rename and add to .gitignore
     // Whatever you do DO NOT COMMIT and PUSH with the real passwords
+    Player player = new Player("Michael","Jordan");
+    Player player1 = new Player("Lebron","James");
+    Player player2 = new Player("Kobe","Bryant");
+
+    Team team = new Team("Boston Celtics");
+    Team team1 = new Team("LA Lakers");
+    Team team2 = new Team("Chicago Bulls");
+
+    player.setTeam(team2);
+    player1.setTeam(team);
+    player2.setTeam(team1);
+
 
     User user = new User("user", "user1");
+    user.addPlayer(player1);
+    user.setTeam(team1);
+    user.addPlayer(player);
     User admin = new User("admin", "admin1");
+    admin.addPlayer(player2);
+    admin.addPlayer(player);
     User both = new User("user_admin", "user_admin1");
 
     if(admin.getUserPass().equals("test")||user.getUserPass().equals("test")||both.getUserPass().equals("test"))
