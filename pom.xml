@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dat.sem3</groupId>
-    <artifactId>CA2_Group</artifactId>
+    <artifactId>CA2_August</artifactId>
     <version>1.0.1</version>
     <packaging>war</packaging>
 
-    <name>CA2_Group</name>
+    <name>CA2_August</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
