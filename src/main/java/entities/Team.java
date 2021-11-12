@@ -1,5 +1,7 @@
 package entities;
 
+import dtos.TeamDTO;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,11 @@ public class Team {
         this.name = name;
         this.player = new ArrayList<>();
         this.user = new ArrayList<>();
+    }
+
+    public Team(TeamDTO teamDTO){
+        this.name = teamDTO.getName();
+
     }
 
     public String getName() {

@@ -31,7 +31,7 @@ import utils.EMF_Creator;
 @Path("login")
 public class LoginEndpoint {
 
-    public static final int TOKEN_EXPIRE_TIME = 1000 * 60 * 30; //30 min
+    public static final int TOKEN_EXPIRE_TIME = 1000 * 60 * 5000; //5000 min. Så når jeg sidder til eksamen så ryger jeg ikke lige pludselig af.
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
     public static final UserFacade USER_FACADE = UserFacade.getUserFacade(EMF);
 

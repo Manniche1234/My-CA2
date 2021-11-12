@@ -1,5 +1,7 @@
 package entities;
 
+import dtos.PlayerDTO;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,11 @@ public class Player {
         this.user = new ArrayList<>();
     }
 
+    public Player(PlayerDTO playerDTO){
+        this.fName = playerDTO.getfName();
+        this.lName = playerDTO.getlName();
+
+    }
     public Player() {
     }
 

@@ -1,6 +1,8 @@
 package facades;
 
+import dtos.PlayerDTO;
 import dtos.UserDTO;
+import entities.Player;
 import entities.Role;
 import entities.User;
 import javax.persistence.EntityManager;
@@ -68,6 +70,21 @@ public class UserFacade {
             em.getTransaction().begin();
             User user = em.find(User.class,userName);
             em.remove(user);
+            em.getTransaction().commit();
+            return new UserDTO(user);
+        }finally {
+            em.close();
+        }
+    }
+
+
+    public UserDTO addPlayerToUser(String username, PlayerDTO playerdto){
+        EntityManager em = emf.createEntityManager();
+        try{
+            em.getTransaction().begin();
+            User user = em.find(User.class,username);
+            user.addPlayer(new Player(playerdto.getfName(),playerdto.getlName()));
+            em.merge(user);
             em.getTransaction().commit();
             return new UserDTO(user);
         }finally {
