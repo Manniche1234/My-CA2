@@ -81,6 +81,7 @@ public class UserFacade {
     public UserDTO addPlayerToUser(String username, PlayerDTO playerdto){
         EntityManager em = emf.createEntityManager();
         try{
+
             em.getTransaction().begin();
             User user = em.find(User.class,username);
             user.addPlayer(new Player(playerdto.getfName(),playerdto.getlName()));
