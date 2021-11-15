@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import dtos.PlayerDTO;
 import dtos.UserDTO;
 import entities.Player;
+import entities.User;
 import facades.UserFacade;
 import utils.EMF_Creator;
 
@@ -34,13 +35,25 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed("user")
-    @Path("/addplayer/{username}")
-    public String addPlayerToUser( String DTO){
+    @Path("/addplayer")
+    public String addPlayerToUser(String DTO){
         String thisuser = securityContext.getUserPrincipal().getName();
-//        String thisuser = username;
         PlayerDTO playerDTO = gson.fromJson(DTO,PlayerDTO.class);
         UserDTO response = facade.addPlayerToUser(thisuser,playerDTO);
 
-        return gson.toJson(response);
+        return  "You added a player " + playerDTO.getfirst_name() + " " + playerDTO.getLast_name() + " to user: " + thisuser;
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @RolesAllowed("user")
+    @Path("/usersplayers")
+    public String seeALlUsersPlayer(){
+        String thisuser = securityContext.getUserPrincipal().getName();
+        UserDTO user = facade.seeAllPlayerWithUserId(thisuser);
+
+        return gson.toJson(user);
+
     }
 }

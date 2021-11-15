@@ -12,8 +12,8 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String fName;
-    private String lName;
+    private String first_name;
+    private String last_name;
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     private List<User> user;
@@ -22,34 +22,34 @@ public class Player {
     private Team team;
 
 
-    public Player(String fName, String lName) {
-        this.fName = fName;
-        this.lName = lName;
+    public Player(String first_name, String last_name) {
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.user = new ArrayList<>();
     }
 
     public Player(PlayerDTO playerDTO){
-        this.fName = playerDTO.getfName();
-        this.lName = playerDTO.getlName();
+        this.first_name = playerDTO.getfirst_name();
+        this.last_name = playerDTO.getLast_name();
 
     }
     public Player() {
     }
 
-    public String getfName() {
-        return fName;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getlName() {
-        return lName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     public Long getId() {

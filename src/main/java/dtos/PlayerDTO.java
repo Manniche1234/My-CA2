@@ -1,7 +1,6 @@
 package dtos;
 
 import entities.Player;
-import entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +8,8 @@ import java.util.List;
 public class PlayerDTO {
 
 
-    private String fName;
-    private String lName;
+    private String first_name;
+    private String last_name;
 
 
     public static List<PlayerDTO> getDtos(List<Player> p){
@@ -20,32 +19,32 @@ public class PlayerDTO {
     }
 
     public PlayerDTO(Player player) {
-        this.fName = player.getfName();
-        this.lName = player.getlName();
+        this.first_name = player.getFirst_name();
+        this.last_name = player.getLast_name();
 
     }
 
 
-    public PlayerDTO(String fName, String lName, String tName) {
-        this.fName = fName;
-        this.lName = lName;
+    public PlayerDTO(String first_name, String last_name) {
+        this.first_name = first_name;
+        this.last_name = last_name;
 
     }
 
-    public String getfName() {
-        return fName;
+    public String getfirst_name() {
+        return first_name;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getlName() {
-        return lName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
 }

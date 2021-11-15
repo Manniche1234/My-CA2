@@ -9,6 +9,7 @@ public class UserDTO {
 
     private String userName;
     private String userPass;
+    private List<PlayerDTO> players;
 
 
     public static List<UserDTO> getDtos(List<User> u){
@@ -19,6 +20,7 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this.userName = user.getUserName();
+        this.players = PlayerDTO.getDtos(user.getPlayer());
     }
 
 
@@ -39,7 +41,11 @@ public class UserDTO {
         this.userPass = userPass;
     }
 
+    public List<PlayerDTO> getPlayers() {
+        return players;
+    }
 
-
-
+    public void setPlayers(List<PlayerDTO> players) {
+        this.players = players;
+    }
 }
