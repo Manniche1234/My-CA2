@@ -46,9 +46,8 @@ public class UserResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed("user")
-    @Path("/usersplayers")
+    @Path("/getuser")
     public String seeALlUsersPlayer(){
         String thisuser = securityContext.getUserPrincipal().getName();
         UserDTO user = facade.seeAllPlayerWithUserId(thisuser);
