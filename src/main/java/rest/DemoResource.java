@@ -21,6 +21,8 @@ import facades.UserFacade;
 import org.eclipse.persistence.annotations.CompositeMember;
 import utils.EMF_Creator;
 import utils.HttpUtils;
+import utils.SetUpUsersOnDroplet;
+import utils.SetupTestUsers;
 
 /**
  * @author lam@cphbusiness.dk
@@ -122,5 +124,13 @@ public class DemoResource {
         UserDTO userDTO = facade.deleteUser(name);
 
         return "Deleted user " + gson.toJson(userDTO);
+    }
+
+    @GET
+    @Path("createUsers")
+    public void createUsersOnDate(){
+        SetUpUsersOnDroplet set = new SetUpUsersOnDroplet();
+
+        set.createUser();
     }
 }
