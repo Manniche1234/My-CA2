@@ -128,9 +128,11 @@ public class DemoResource {
 
     @GET
     @Path("createUsers")
-    public void createUsersOnDate(){
+    public String createUsersOnDate(){
         SetUpUsersOnDroplet set = new SetUpUsersOnDroplet();
 
         set.createUser();
+
+        return "Was created";
     }
 }
